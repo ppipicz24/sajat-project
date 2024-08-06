@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeadersComponent } from './headers/headers.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeadersComponent
+    HeadersComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule

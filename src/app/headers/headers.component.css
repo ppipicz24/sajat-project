@@ -1,0 +1,32 @@
+.navbar{
+    background-color: #ac7339;
+}
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+  }
+  
+.nav-link, .navbar-brand{
+    color: white;
+  margin: 16px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.8s ease-in-out;
+  position: relative;
+}
+
+
+.nav-link:hover, .navbar-brand:hover, .active{
+    color: #4d2600;
+}
+
+.moveRight{
+    margin-left: auto;
+}
+
+
+
