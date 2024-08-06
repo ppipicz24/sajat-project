@@ -10,9 +10,9 @@
   }
   
 .nav-link, .navbar-brand{
-    color: white;
-  margin: 16px;
-  color: #ccc;
+    color: #f2e6d9;
+  margin: 8px;
+  /* color: #ccc; */
   text-transform: uppercase;
   font-weight: 600;
   transition: all 0.8s ease-in-out;
