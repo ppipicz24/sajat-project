@@ -1,1 +1,68 @@
-<p>auth works!</p>
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <!-- <div class="alert alert-danger" *ngIf="error">
+            <p>{{error}}</p>
+        </div> -->
+        <!-- <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert> -->
+
+        <!-- <div #addHere></div> -->
+
+        <!-- <div >
+            <app-loading-spinner></app-loading-spinner>
+        </div> -->
+
+        <form>
+            <div class="form-group">
+                <label for="email">E-mail cím</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    ngModel
+                    required
+                    email />
+            </div>
+            <div class="form-group">
+                <label for="password">Jelszó</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    ngModel
+                    minlength="6"
+                    required />
+            </div>
+            <div>
+                <!-- <button class="btn btn-info" type="submit" [disabled]="!authForm.valid">{{isLoginMode ? "Bejelentkezés" : "Regisztráció"}}</button> |  -->
+                <!-- <button class="btn btn-info"  type="button">{{isLoginMode ? "Még nincs fiókom, létrehozok egyet" : "Már van fiókom, belépek"}}</button> -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+
+<div class="login">
+    <p class="sign" align="center">Bejelentkezés</p>
+    <form class="form1">
+      <input class="un" type="text" align="center" placeholder="Username">
+      <input class="pass" type="password" align="center" placeholder="Password">
+      <a class="submit" align="center">Sign in</a>
+      <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+      <p class="forgot" align="center"><a href="#">Regisztráció</a></p>
+    </form>
+</div>
+
+<div class="singup">
+    <p class="sign" align="center">Regisztráció</p>
+    <form class="form1">
+      <input class="un" type="text" align="center" placeholder="Username">
+      <input class="pass" type="password" align="center" placeholder="Password">
+      <a class="submit" align="center">Sign in</a>
+      <p class="forgot" align="center"><a href="#">Már van fiókom, bejelentkezek</a></p>
+    </form>
+</div>
+
+     

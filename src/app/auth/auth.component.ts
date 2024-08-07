@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import anime from 'animejs/lib/anime.es.js';
 
 @Component({
   selector: 'app-auth',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './auth.component.css'
 })
 export class AuthComponent {
+  
 
 }
