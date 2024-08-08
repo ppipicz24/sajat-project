@@ -1,5 +1,31 @@
-.navbar{
+nav{
     background-color: #16a085;
+    border-radius: 8px;
+}
+
+a{
+  line-height: 20px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: #e8f6f3;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+
+nav .nav-link:hover, .navbar-brand:hover, .active{
+  /* width: 100px; */
+  left: 0;
+  background-color: #1abc9c;
+  color: #0b5345;
+  transition: all 0.8s ease-in-out;
+  border-radius: 8px;
 }
 
 .sticky-top {
@@ -8,21 +34,12 @@
     top: 0;
     z-index: 1030;
   }
-  
-.nav-link, .navbar-brand{
-    color: #e8f6f3;
-  margin: 8px;
-  /* color: #ccc; */
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.8s ease-in-out;
-  position: relative;
-}
 
 
-.nav-link:hover, .navbar-brand:hover, .active{
+
+/* .nav-link:hover, .navbar-brand:hover, .active{
     color: #0b5345;
-}
+}  */
 
 .moveRight{
     margin-left: auto;
