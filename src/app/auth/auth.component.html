@@ -1,9 +1,10 @@
 <div class="login" *ngIf="isLoginMode">
     <p class="sign" align="center">Bejelentkezés</p>
     <form class="form1" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-      <input class="un" type="text" align="center" placeholder="Felhasználónév" name="username" id="username" ngModel required minlength="5">
-      <input class="pass" type="password" align="center" placeholder="Jelszó" name="password" id="password" ngModel required password minlength="8">
-      <a class="submit" align="center">Bejelentkezés</a>
+      <!-- <input class="un" type="text" align="center" placeholder="Felhasználónév" name="username" id="username" ngModel required minlength="5"> -->
+        <input type="email" class="un" align="center" placeholder="E-mail" name="email" id="email" ngModel required email>
+      <input class="pass" type="password" align="center" placeholder="Jelszó" name="password" id="password" ngModel required password minlength="6">
+      <button type="submit" class="submit" align="center">Bejelentkezés</button>
       <p class="forgot" align="center"><a >Elfelejtett jelszó</a></p>
       <p class="forgot" align="center"><a (click)="onSwitchMode()">Regisztráció</a></p>
     </form>
@@ -11,12 +12,12 @@
 
 <div class="singup" *ngIf="!isLoginMode">
     <p class="sign" align="center">Regisztráció</p>
-    <form class="form1">
-      <input class="un" type="text" align="center" placeholder="Felhasználónév">
-      <input type="email" class="un" align="center" placeholder="E-mail">
-      <input class="pass" type="password" align="center" placeholder="Jelszó">
-      <input class="pass" type="password" align="center" placeholder="Jelszó megerősítése">
-      <a class="submit" align="center">Regisztráció</a>
+    <form class="form1" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+      <!-- <input class="un" type="text" align="center" placeholder="Felhasználónév"> -->
+      <input type="email" class="un" align="center"name="email" id="email"  placeholder="E-mail" required ngModel email>
+      <input class="pass" type="password" align="center" name="password" id="password" placeholder="Jelszó" required ngModel password minlength="6">
+      <!-- <input class="pass" type="password" align="center" placeholder="Jelszó megerősítése"> -->
+      <button type="submit" class="submit" align="center">Regisztráció</button>
       <p class="forgot" align="center"><a (click)="onSwitchMode()">Már van fiókom, bejelentkezek</a></p>
     </form>
 </div>
