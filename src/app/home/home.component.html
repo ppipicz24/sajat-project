@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div *ngIf="!isAuth">
+    <h1>Home</h1>
+    <p>Welcome to the home page!</p>
+</div>
+<div *ngIf="isAuth">
+    <h1>Home</h1>
+    <p>Welcome to the home page, {{ user.email }}!</p>
+</div>
+
