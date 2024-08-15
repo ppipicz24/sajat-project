@@ -1,7 +1,6 @@
 import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import anime from 'animejs/lib/anime.es.js';
 import { AuthResponseData, AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 
@@ -26,6 +25,7 @@ export class AuthComponent {
     }
     const email = form.value.email
     const password = form.value.password
+    const password2 = form.value.password2
     // const username = form.value.username
 
     let authObservable: Observable<AuthResponseData>
@@ -33,6 +33,10 @@ export class AuthComponent {
     if(this.isLoginMode){
       authObservable = this.authService.login(email, password)
     } else {
+      if(password !== password2){
+        this.error = 'Passwords do not match'
+        return
+      }
       authObservable = this.authService.signUp(email, password)
       this.isLoginMode = true
     }
