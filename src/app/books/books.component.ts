@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs';
 import { User } from '../auth/user.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrl: './books.component.css'
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class BooksComponent implements OnInit, OnDestroy {
   isAuth = false;
   private userSub: Subscription;
 
