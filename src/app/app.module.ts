@@ -8,14 +8,16 @@ import { AppRoutingModule } from './app.routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadersComponent,
     AuthComponent,
-    HomeComponent
+    BooksComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

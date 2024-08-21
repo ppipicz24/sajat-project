@@ -28,10 +28,10 @@ export class AuthService{
                 password: password,
                 returnSecureToken: true
             })
-        // ).pipe(catchError(this.handleError), tap(responseData=>{
+        .pipe(catchError(this.handleError), tap(responseData=>{
 
-        //     this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
-        // }))
+            this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
+        }))
     }
 
     login(email: string, password: string){
@@ -64,15 +64,19 @@ export class AuthService{
         }
         switch(errorResponse.error.error.message){
             case 'EMAIL_EXISTS':
-                errorMessage = 'This email already exists';
+                errorMessage = 'Ez az email már létezik';
                 break;
             case 'EMAIL_NOT_FOUND':
-                errorMessage = 'This email does not exist';
+                errorMessage = 'Ez az email még nem létezik';
                 break;
             case 'INVALID_PASSWORD':
-                errorMessage = 'This password is not correct';
+                errorMessage = 'A jelszó nem megfelelő';
+                break;
+            case 'INVALID_LOGIN_CREDENTIALS':
+                errorMessage = 'Hibás bejelentkezési adatok';
                 break;
         }
+        console.log(errorResponse);
         return throwError(errorMessage);
     }
 

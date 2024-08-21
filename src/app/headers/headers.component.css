@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 nav{
     background-color: #16a085;
     border-radius: 8px;
@@ -11,8 +13,17 @@ a{
   position: relative;
   z-index: 1;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-align: center;
+  color: #e8f6f3;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.navbar-brand{
+  font-size: 20px;
+  font-weight: bold;
   color: #e8f6f3;
   cursor: pointer;
   border-radius: 8px;
@@ -34,12 +45,6 @@ nav .nav-link:hover, .navbar-brand:hover, .active{
     top: 0;
     z-index: 1030;
   }
-
-
-
-/* .nav-link:hover, .navbar-brand:hover, .active{
-    color: #0b5345;
-}  */
 
 .moveRight{
     margin-left: auto;

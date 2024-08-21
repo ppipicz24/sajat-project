@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthResponseData, AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -34,7 +36,8 @@ export class AuthComponent {
       authObservable = this.authService.login(email, password)
     } else {
       if(password !== password2){
-        this.error = 'Passwords do not match'
+        this.error = 'A jelszavak nem egyeznek meg!'
+        console.log(this.error)
         return
       }
       authObservable = this.authService.signUp(email, password)
@@ -44,8 +47,12 @@ export class AuthComponent {
     authObservable.subscribe(
       (responseData) => {
         console.log(responseData)
-        this.router.navigate(['/home'])
+        this.router.navigate(['/books'])
       },
+      (errorMessage) => {
+        this.error = errorMessage
+        console.log(errorMessage)
+      }
 
     )
 

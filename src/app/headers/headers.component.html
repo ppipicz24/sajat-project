@@ -2,15 +2,16 @@
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">Főoldal</a> -->
             <a routerLink="/" class="navbar-brand">Főoldal</a>
+
+            <a routerLink="favourites" class="nav-link" *ngIf="isAuthenticated">Kedvencek</a>
     
             <div class="moveRight">
             <div class="collaps navbar-collapse" id="navbarToggler">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li routerLinkActive="active" class="nav-item">
-                            <a class="nav-link" routerLink="/auth" *ngIf="!isAuthenticated">Bejelentkezés</a>
-                        </li>
-    
+                        <li routerLinkActive="active" class="nav-item" *ngIf="!isAuthenticated">
+                            <a class="nav-link" routerLink="/auth" >Bejelentkezés</a>
+                        </li>   
                         <li class="nav-item" *ngIf="isAuthenticated">
                             <a class="nav-link" (click)="onLogout()">Kijelentkezés</a>
                         </li>

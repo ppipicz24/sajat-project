@@ -93,12 +93,20 @@ font-family: 'Ubuntu', sans-serif;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #a2d9ce;
     padding-top: 15px;
+
 }
 
 a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #a2d9ce;
     text-decoration: none
+}
+
+.help-block {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #d9004c;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 @media (max-width: 600px) {

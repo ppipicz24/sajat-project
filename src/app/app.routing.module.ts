@@ -1,12 +1,14 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
-import { HomeComponent } from "./home/home.component";
+import { BooksComponent } from "./books/books.component";
+import { FavouritesComponent } from "./favourites/favourites.component";
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
+    {path: '', redirectTo: '/books', pathMatch: 'full'},
+    {path: 'books', component: BooksComponent},
     {path: 'auth', component: AuthComponent},
+    {path: 'favourites', component: FavouritesComponent}
 
 ]
 
