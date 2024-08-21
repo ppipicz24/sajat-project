@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+.btn.btn-info{
+    color: #e8f6f3;
+    background-color: #16a085;
+    border-color: #16a085;
+    font-size: 15px;
+    font-family: 'Libre Baskerville', serif
+
+}
+
+.btn.btn-info:hover{
+    background-color: #1abc9c;
+    color: #0b5345;
+    border-color: #1abc9c;
+    transition: all 0.5s ease-in-out;
+    font-size: 15px;
+    font-family: 'Libre Baskerville', serif
+
+}

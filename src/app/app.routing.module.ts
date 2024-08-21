@@ -6,7 +6,10 @@ import { FavouritesComponent } from "./favourites/favourites.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
-    {path: 'books', component: BooksComponent},
+    {path: 'books', component: BooksComponent, children: [
+        {path: '', component: BooksComponent},
+    ]
+    },
     {path: 'auth', component: AuthComponent},
     {path: 'favourites', component: FavouritesComponent}
 

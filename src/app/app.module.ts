@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { BooksComponent } from './books/books.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 
 @NgModule({
   declarations: [
