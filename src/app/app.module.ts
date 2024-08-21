@@ -18,6 +18,7 @@ import { BookListComponent } from './books/book-list/book-list.component';
     HeadersComponent,
     AuthComponent,
     BooksComponent,
+    BookListComponent,
     FavouritesComponent
   ],
   imports: [
