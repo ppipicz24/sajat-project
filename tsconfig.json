@@ -4,6 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "strict": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "sourceMap": true,

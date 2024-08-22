@@ -1,1 +1,16 @@
-<p>book-edit works!</p>
+<div class="newBook">
+    <form [formGroup]="bookForm">
+        <p class="sign" align="center">Új könyv hozzáadása</p>
+            <input type="text" formControlName="title" id="title" class="title" placeholder="Cím" align="center">
+            <input type="text" formControlName="author" id="author" class="author" placeholder="Szerző" align="center">
+            <textarea formControlName="description" id="description" class="description" placeholder="Leírás" align="center"></textarea>
+            <input type="text" formControlName="imagePath" id="imagePath" class="imagePath" #imagePath placeholder="Egy kép a könyvről" align="center">
+            <input type="number" formControlName="price" id="price" class="price" placeholder="Ár" align="center">
+            <img [src]="imagePath.value" alt="" class="img-responsive" align="center">
+            
+            <button type="submit" class="submit">Save</button>
+            <button type="button" class="cancel" >Cancel</button>
+    </form>
+</div>
+<br>
+<hr>

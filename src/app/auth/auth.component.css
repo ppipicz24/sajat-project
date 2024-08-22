@@ -18,7 +18,7 @@
 .sign {
     padding-top: 40px;
     color: #0b5345;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Libre Baskerville', serif;
     font-weight: bold;
     font-size: 23px;
 }
@@ -40,7 +40,7 @@ margin-bottom: 50px;
 margin-left: 46px;
 text-align: center;
 margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Libre Baskerville', serif;
 }
 
 form.form1 {
@@ -64,7 +64,7 @@ margin-bottom: 50px;
 margin-left: 46px;
 text-align: center;
 margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Libre Baskerville', serif;
 }
 
 
@@ -83,8 +83,8 @@ font-family: 'Ubuntu', sans-serif;
     padding-right: 40px;
     padding-bottom: 10px;
     padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 30%;
+    font-family: 'Libre Baskerville', serif;   
+     margin-left: 30%;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
@@ -93,6 +93,9 @@ font-family: 'Ubuntu', sans-serif;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #a2d9ce;
     padding-top: 15px;
+    font-size: 13px;
+  font-family: 'Libre Baskerville', serif
+
 
 }
 

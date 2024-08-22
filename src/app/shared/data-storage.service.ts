@@ -8,7 +8,7 @@ import { Book } from "../books/books.model";
 export class DataStorageService{
     constructor(private http: HttpClient, private bookService: BooksService){}
     
-    StoreBooks()
+    storeBooks()
     {
         const books = this.bookService.getBooks()
 
@@ -17,7 +17,7 @@ export class DataStorageService{
         })
     }
 
-    FetchBooks()
+    fetchBooks()
     {
         this.http.get<Book[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/books.json').pipe(tap(books=>{
             return books.map(book =>{

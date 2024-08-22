@@ -1,10 +1,12 @@
 <div *ngIf="!isAuth">
     <h1>Home</h1>
     <p>Welcome to the home page!</p>
-    <app-book-list></app-book-list>
+    
 </div>
 <div *ngIf="isAuth">
     <h1>Home</h1>
     <p>Welcome to the home page, {{ user.email }}!</p>
 </div>
 
+<app-book-list></app-book-list>
+<router-outlet></router-outlet>

@@ -11,7 +11,6 @@ import { User } from '../auth/user.model';
 export class BooksComponent implements OnInit, OnDestroy {
   isAuth = false;
   private userSub: Subscription;
-
   user: User
 
   constructor(private authService: AuthService){}

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Book } from "./books.model";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class BooksService {
     booksChanged = new Subject<Book[]>();
 
