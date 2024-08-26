@@ -1,11 +1,10 @@
-<div class="row">
-    <div class="col-xs-12">
-        <button class="btn btn-info" (click)="onNewBook()">New Recipe</button>
-    </div>
+<div>
+    <button class="btn btn-info" (click)="onNewBook()" *ngIf="isAuthenticated">New Recipe</button>
 </div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <app-book-item *ngFor="let book of books; let i = index" [book]="book" [index]="i"></app-book-item>
-    </div>
+<!-- Grid Container -->
+<div class="book-grid">
+    <ng-container *ngFor="let book of books; let i = index">
+        <app-book-item [book]="book" [index]="i"></app-book-item>
+    </ng-container>
 </div>

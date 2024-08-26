@@ -9,9 +9,9 @@ const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
     {path: 'books', component: BooksComponent, children: [
         // {path: '', component: BooksComponent},
-        {path: 'new', component: BookEditComponent},
     ]
 },
+    {path: 'new', component: BookEditComponent},
     {path: 'auth', component: AuthComponent},
     {path: 'favourites', component: FavouritesComponent}
 

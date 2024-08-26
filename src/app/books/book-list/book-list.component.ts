@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { BookEditComponent } from '../book-edit/book-edit.component';
 import { DataStorageService } from '../../shared/data-storage.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-book-list',
@@ -15,8 +16,10 @@ import { DataStorageService } from '../../shared/data-storage.service';
 export class BookListComponent implements OnInit, OnDestroy {
   books: Book[] = []
   sub: Subscription
+  isAuthenticated = false
+  private userSub: Subscription;
 
-  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog, private bookService: BooksService, private dataStorage: DataStorageService) {
+  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog, private bookService: BooksService, private dataStorage: DataStorageService, private authService: AuthService) {
     this.books = this.bookService.getBooks()
   }
   
@@ -29,10 +32,14 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.books = this.bookService.getBooks()
     this.fetchBooks()
     console.log(this.books)
+
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
   }
 
   onNewBook(){
-    this.router.navigate(['new'], {relativeTo: this.route})
+    this.router.navigate(['../new'], {relativeTo: this.route})
   }
 
   fetchBooks(){
@@ -41,6 +48,7 @@ export class BookListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
+    this.userSub.unsubscribe();
   }
 
 }

@@ -18,3 +18,14 @@
     font-family: 'Libre Baskerville', serif
 
 }
+
+table{
+    margin-top: 20px;
+}
+
+.book-grid {  
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* create as many columns as will fit in the container */
+    gap: 10px; /* Adjusts the space between items */
+    margin: 20px;
+}
