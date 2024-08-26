@@ -19,7 +19,7 @@ export class DataStorageService{
 
     fetchBooks()
     {
-        this.http.get<Book[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/books.json').pipe(tap(books=>{
+        return this.http.get<Book[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/books.json').pipe(tap(books=>{
             return books.map(book =>{
                 return {
                     ...book

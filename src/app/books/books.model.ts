@@ -3,15 +3,15 @@ export class Book{
     public title: string;
     public author: string;
     public description: string;
-    public imageUrl: string;
+    public imagePath: string;
     public price: number;
 
-    constructor(id: string, title: string, author: string, description: string, imageUrl: string, price: number){
+    constructor(id: string, title: string, author: string, description: string, imagePath: string, price: number){
         this.id = id;
         this.title = title;
         this.author = author;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.imagePath = imagePath;
         this.price = price;
     }
 

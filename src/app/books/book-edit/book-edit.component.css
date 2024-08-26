@@ -59,6 +59,23 @@
   margin-left: 22%;
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+
+}
+
+.submit:disabled{
+  cursor: pointer;
+  border-radius: 6em;
+  color: #fff;
+  background: linear-gradient(to right, #49635e, #96b8b1);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Libre Baskerville", serif;
+  margin-left: 22%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
 .cancel{

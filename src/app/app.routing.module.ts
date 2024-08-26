@@ -11,7 +11,7 @@ const appRoutes: Routes = [
         // {path: '', component: BooksComponent},
         {path: 'new', component: BookEditComponent},
     ]
-    },
+},
     {path: 'auth', component: AuthComponent},
     {path: 'favourites', component: FavouritesComponent}
 

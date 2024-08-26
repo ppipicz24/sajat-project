@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { BooksService } from '../books.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -14,7 +15,7 @@ export class BookEditComponent implements OnInit {
   editMode = false
   bookForm: FormGroup
 
-  constructor(private route: ActivatedRoute, private bookService: BooksService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private bookService: BooksService, private router: Router, private dataStorage: DataStorageService) {}
 
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
@@ -38,7 +39,7 @@ export class BookEditComponent implements OnInit {
       bookTitle = book.title
       bookAuthor = book.author
       bookDescription = book.description
-      bookImage = book.imageUrl
+      bookImage = book.imagePath
       bookPrice = book.price
     }
 
@@ -47,8 +48,23 @@ export class BookEditComponent implements OnInit {
       author: new FormControl(bookAuthor, Validators.required),
       description: new FormControl(bookDescription, Validators.required),
       imagePath: new FormControl(bookImage, Validators.required),
-      price: new FormControl(bookPrice, Validators.required)
+      price: new FormControl(bookPrice, [Validators.required, Validators.min(1)])
     })
+  }
+
+  onSubmit(){
+    if(this.editMode){
+      this.bookService.updateBook(this.id, this.bookForm.value)
+    }else{
+      this.bookService.addBook(this.bookForm.value)
+
+    }
+    this.onCancel()
+    this.dataStorage.storeBooks()
+  }
+
+  onCancel(){
+    this.router.navigate(['../'], {relativeTo: this.route})
   }
 
 }
