@@ -1,0 +1,40 @@
+<div class="dialog">
+  
+  <mat-dialog-actions>
+    <h1 mat-dialog-title class="title">{{book.author}}: {{book.title}} </h1>
+    <button mat-button (click)="close()">X</button>
+  </mat-dialog-actions>
+  
+  
+  <mat-dialog-content >
+    <table>
+      <tr>
+        <td class="image">
+          <img [src]="book.imagePath" alt="{{book.title}}" class="img-responsive">
+
+        </td>
+        <td>
+          <table>
+
+            <tr>
+              <td>
+                <p class="title2">{{ book.author }}: {{book.title}}</p>
+                <p>{{ book.price}} Ft</p>
+              <p class="desc">{{ book.description }}</p>
+            </td>
+          </tr>
+            <div class="buttons">
+              <button class="cart">Kosárba</button>
+              <button class="favs"><img class="fav" src="https://img.icons8.com/?size=100&id=86&format=png&color=000000" alt=""></button>
+
+            </div>
+        </table>
+
+
+        </td>
+      </tr>
+
+    </table>
+  
+  </mat-dialog-content>
+</div>

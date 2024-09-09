@@ -4,11 +4,13 @@ import { AuthComponent } from "./auth/auth.component";
 import { BooksComponent } from "./books/books.component";
 import { FavouritesComponent } from "./favourites/favourites.component";
 import { BookEditComponent } from "./books/book-edit/book-edit.component";
+import { BookDetailComponent } from "./books/book-detail/book-detail.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
     {path: 'books', component: BooksComponent, children: [
         // {path: '', component: BooksComponent},
+        {path: ':id', component: BookDetailComponent},
     ]
 },
     {path: 'new', component: BookEditComponent},

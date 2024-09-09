@@ -15,17 +15,25 @@ import { BookEditComponent } from './books/book-edit/book-edit.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterModule } from '@angular/router';
 import { BookItemComponent } from './books/book-list/book-item/book-item.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadersComponent,
     AuthComponent,
+
     BooksComponent,
     BookListComponent,
     BookEditComponent,
     BookItemComponent,
-    FavouritesComponent
+    BookDetailComponent,
+
+    FavouritesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,6 +42,10 @@ import { BookItemComponent } from './books/book-list/book-item/book-item.compone
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [
     provideAnimationsAsync()

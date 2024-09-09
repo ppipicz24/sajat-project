@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BooksService } from '../books.service';
 import { Book } from '../books.model';
 import { Subscription } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
-import { BookEditComponent } from '../book-edit/book-edit.component';
 import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -19,10 +17,9 @@ export class BookListComponent implements OnInit, OnDestroy {
   isAuthenticated = false
   private userSub: Subscription;
 
-  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog, private bookService: BooksService, private dataStorage: DataStorageService, private authService: AuthService) {
+  constructor(private router: Router, private route: ActivatedRoute, private bookService: BooksService, private dataStorage: DataStorageService, private authService: AuthService) {
     this.books = this.bookService.getBooks()
   }
-  
   
   ngOnInit(): void {
     this.sub = this.bookService.booksChanged.subscribe((books: Book[]) => {

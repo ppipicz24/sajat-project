@@ -1,7 +1,5 @@
 <div
-  style="cursor: pointer;"
-  
-  class="card">
+  class="card" >
   <img
     [src]="[book.imagePath]"
     alt="{{ book.title }}"
@@ -11,11 +9,10 @@
   <div class="container">
     <h4 class="title">{{ book.author }}: {{book.title}}</h4>
     <p class="price">{{book.price}} Ft</p>
-    <p class="list-group-item-text description" [routerLink]="[index]"
-    routerLinkActive="active">{{ book.description }}</p>
+    <p class="list-group-item-text description">{{ book.description }}</p>
     <p>
       <button class="cart">Kosárba</button>
-      <button class="detail">Részletek</button>
+      <button class="detail" (click)="openDialog(index)">Részletek</button>
       <button class="favs"><img class="fav" src="https://img.icons8.com/?size=100&id=86&format=png&color=000000" alt=""></button>
     </p>
   </div>

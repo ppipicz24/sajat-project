@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+img{
+    width: 200px;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.image{
+    width: 210px;
+    margin-left: 10px;
+    /* margin: 5px 5px 5px 5px; */
+}
+
+td{
+    border: 2px solid white;
+    hyphens: auto;
+    word-wrap: break-all;
+    /* margin-left: 2px; */
+
+}
+
+table{
+    width: 200px;
+    height: auto;
+    border-collapse: collapse;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons{
+    margin-bottom: 5px;
+    margin-top: 30%;
+}
+
+.title{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0b5345;
+    margin-right: 42%;
+}
+
+.title2{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b5345;
+    margin-right: 42%;
+}
+
+.dialog{
+    width: 500px;
+    height: auto;
+}
+
+.favs, .fav{
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+.cart{
+    cursor: pointer;
+    border-radius: 6em;
+    color: #fff;
+    background: linear-gradient(to right, #0e6655, #45b39d);
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Libre Baskerville', serif;  
+    margin-left: auto;
+    margin-bottom: 0;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+
+}
