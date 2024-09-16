@@ -10,6 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class HeadersComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
+  count = 0;
 
   constructor(private authService: AuthService){}
 

@@ -14,13 +14,17 @@
                     </div>
                     
                     <ul class="nav navbar-nav navbar-right">
+                        <li routerLinkActive="active" class="nav-item">
+                            <a routerLink="/cart" class="nav-link">Kosár ({{count}})</a>
+                        </li>
+
                         <li routerLinkActive="active" class="nav-item" *ngIf="!isAuthenticated">
                             <a class="nav-link" routerLink="/auth" >Bejelentkezés</a>
-                        </li>   
+                        </li> 
                         <li class="nav-item" *ngIf="isAuthenticated">
                             <a class="nav-link" (click)="onLogout()">Kijelentkezés</a>
                         </li>
-                        <div class="animation start-home"></div>
+                        <!-- <div class="animation start-home"></div> -->
                     </ul>
                 </div>
             </div>
