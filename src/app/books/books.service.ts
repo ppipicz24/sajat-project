@@ -9,7 +9,7 @@ export class BooksService {
 
     books: Book[] = []
 
-    constructor() {}
+    // constructor(private dataStorage: DataStorageService) {}
 
     getBooks(){
         return this.books.slice();

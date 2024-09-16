@@ -57,7 +57,6 @@ export class BookEditComponent implements OnInit {
       this.bookService.updateBook(this.id, this.bookForm.value)
     }else{
       this.bookService.addBook(this.bookForm.value)
-
     }
     this.onCancel()
     this.dataStorage.storeBooks()
