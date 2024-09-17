@@ -23,6 +23,8 @@ export class BookItemComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id']
     })
+
+    console.log(this.book.id)
   }
 
 
@@ -31,7 +33,8 @@ export class BookItemComponent implements OnInit {
   }
 
   addToCart(){
-    this.cartService.addBooksToCart(this.book)
+    this.cartService.addBooksToCart(this.book, this.id)
     this.dataStore.storeBooksToCart()
+    console.log(this.cartService.getBooksInCart())
   }
 }

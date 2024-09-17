@@ -32,10 +32,12 @@ export class BookEditComponent implements OnInit {
     let bookDescription = ''
     let bookImage = ''
     let bookPrice
+    let id = 0
     console.log(this.editMode)
 
     if(this.editMode){
       const book = this.bookService.getBook(this.id)
+      id = +book.id
       bookTitle = book.title
       bookAuthor = book.author
       bookDescription = book.description
@@ -44,6 +46,7 @@ export class BookEditComponent implements OnInit {
     }
 
     this.bookForm = new FormGroup({
+      id: new FormControl(id),
       title: new FormControl(bookTitle, Validators.required),
       author: new FormControl(bookAuthor, Validators.required),
       description: new FormControl(bookDescription, Validators.required),

@@ -27,6 +27,7 @@ export class BookListComponent implements OnInit, OnDestroy{
     this.sub = this.bookService.booksChanged.subscribe((books: Book[]) => {
       this.books = books
     })
+
     
     //load initial books
     this.books = this.bookService.getBooks()

@@ -17,9 +17,6 @@ export class BooksResolverService implements Resolve<Book[]>{
         else{
             return books
         }
-
-        // return books.length === 0 ? this.dataStorage.fetchBooks() : books
-
     }
 
 }

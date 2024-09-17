@@ -5,6 +5,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: auto;
+    height:auto;
     margin: 10px;
 }
 
@@ -52,6 +53,7 @@ img {
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 
+
 }
 
 .price{
@@ -74,6 +76,10 @@ img {
     height: calc(1.2em * 2);  /* Adjust this to match your line height and number of lines */
     line-height: 1.2em; 
     color:grey;
+}
+
+.buttons{
+    position: relative;
 }
 
 

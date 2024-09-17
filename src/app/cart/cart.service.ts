@@ -21,7 +21,7 @@ export class CartService {
     this.booksChangedInCart.next(this.booksInCart.slice());
   }
 
-  addBooksToCart(book: Book) {
+  addBooksToCart(book: Book, id: number) {
     this.booksInCart.push(book);
     this.booksChangedInCart.next(this.booksInCart.slice());
   }
