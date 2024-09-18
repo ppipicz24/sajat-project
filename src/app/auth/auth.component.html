@@ -5,8 +5,8 @@
         <input type="email" class="un" align="center" placeholder="E-mail" name="email" id="email" ngModel required email>
       <input class="pass" type="password" align="center" placeholder="Jelszó" name="password" id="password" ngModel required password minlength="6">
       <button type="submit" class="submit" align="center">Bejelentkezés</button>
-      <p class="forgot" align="center"><a >Elfelejtett jelszó</a></p>
-      <p class="forgot" align="center"><a (click)="onSwitchMode()">Regisztráció</a></p>
+      <p class="forgot" align="center"><a style="cursor: pointer;">Elfelejtett jelszó</a></p>
+      <p class="forgot" align="center"><a (click)="onSwitchMode()" style="cursor: pointer;">Regisztráció</a></p>
       <p class="help-block" align="center">{{error}}</p>
     </form>
 </div>
@@ -19,7 +19,7 @@
       <input class="pass" type="password" align="center" name="password" id="password" placeholder="Jelszó" required ngModel password minlength="6">
       <input class="pass" type="password" align="center" name="password2" id="password2" placeholder="Jelszó megerősítése" required ngModel password minlength="6">
       <button type="submit" class="submit" align="center">Regisztráció</button>
-      <p class="forgot" align="center"><a (click)="onSwitchMode()">Már van fiókom, bejelentkezek</a></p>
+      <p class="forgot" align="center"><a (click)="onSwitchMode()" style="cursor: pointer;">Már van fiókom, bejelentkezek</a></p>
       <p class="help-block" align="center">{{error}}</p>
     </form>
 </div>
