@@ -19,6 +19,7 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookDetailComponent,
 
     FavouritesComponent,
+    CartComponent
 
   ],
   imports: [

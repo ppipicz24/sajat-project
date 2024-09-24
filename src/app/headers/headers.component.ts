@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { BookItemComponent } from '../books/book-list/book-item/book-item.component';
 
 @Component({
   selector: 'app-headers',
@@ -12,12 +13,15 @@ export class HeadersComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
   count = 0;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, 
+    // private bookItemComponent: BookItemComponent
+  ){}
 
   ngOnInit(){
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user;
     });
+    // this.count = this.bookItemComponent.countCartItems; 
   }
 
   ngOnDestroy(): void {

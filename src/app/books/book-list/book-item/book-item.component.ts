@@ -16,6 +16,7 @@ export class BookItemComponent implements OnInit {
  @Input() index: number
 
  id: number
+ countCartItems: number
 
  constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService){}
  
@@ -25,6 +26,8 @@ export class BookItemComponent implements OnInit {
     })
 
     console.log(this.book.id)
+    this.countCartItems = this.cartService.getBooksInCart().length + 1
+    console.log(this.countCartItems)
   }
 
 
@@ -33,8 +36,10 @@ export class BookItemComponent implements OnInit {
   }
 
   addToCart(){
+    this.countCartItems = this.cartService.getBooksInCart().length + 1
     this.cartService.addBooksToCart(this.book, this.id)
     this.dataStore.storeBooksToCart()
+    console.log(this.countCartItems)
     console.log(this.cartService.getBooksInCart())
   }
 }

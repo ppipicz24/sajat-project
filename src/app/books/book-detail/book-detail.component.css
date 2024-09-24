@@ -13,7 +13,7 @@ img{
 }
 
 td{
-    border: 2px solid white;
+    border: 2px solid black;
     hyphens: auto;
     word-wrap: break-all;
     /* margin-left: 2px; */
@@ -41,7 +41,7 @@ table{
     font-size: 30px;
     font-weight: bold;
     color: #0b5345;
-    margin-right: 42%;
+    /* margin-right: 42%; */
 }
 
 .title2{
@@ -49,7 +49,6 @@ table{
     font-size: 20px;
     font-weight: bold;
     color: #0b5345;
-    margin-right: 42%;
 }
 
 .dialog{
@@ -76,7 +75,7 @@ table{
     padding-top: 10px;
     font-family: 'Libre Baskerville', serif;  
     margin-left: auto;
-    margin-bottom: 0;
+    margin-bottom: 0; 
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 

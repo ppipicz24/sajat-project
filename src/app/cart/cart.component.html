@@ -1,1 +1,21 @@
-<p>cart works!</p>
+<div class="valami1">
+    <a routerLink="../books" class="previous" style="cursor: pointer;">Vissza a főoldalra</a>
+</div>
+<div class="valami">
+    <h1>Kosár</h1>
+    
+</div>
+
+
+<div class="valami">
+<table>
+    <tr *ngFor="let book of cartItems; let i = index">
+        <td class="imgTd"><img [src]="book.imagePath" alt="{{book.title}}" class="img"></td>
+        <td>{{book.title}}</td>
+        <td>{{book.price}} Ft</td>
+        <td>{{countPerItem}}</td>
+        <td><button (click)="removeFromCart(i)" class="delete">X</button></td>
+    </tr>
+</table>
+
+</div>
