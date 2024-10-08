@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { BookItemComponent } from '../books/book-list/book-item/book-item.component';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-headers',
@@ -13,8 +14,7 @@ export class HeadersComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
   count = 0;
 
-  constructor(private authService: AuthService, 
-    // private bookItemComponent: BookItemComponent
+  constructor(private authService: AuthService,
   ){}
 
   ngOnInit(){

@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     {path: 'new', component: BookEditComponent},
     {path: 'auth', component: AuthComponent},
     {path: 'favourites', component: FavouritesComponent},
-    {path: 'cart', component: CartComponent, resolve: [CartResolverService]}
+    {path: 'cart', component: CartComponent, resolve: [CartResolverService, BooksResolverService]}
 
 
 ]

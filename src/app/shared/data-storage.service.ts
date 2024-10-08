@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BooksService } from "../books/books.service";
-import { tap } from "rxjs";
+import { count, tap } from "rxjs";
 import { Book } from "../books/books.model";
 import { CartService } from "../cart/cart.service";
+import { Cart } from "../cart/cart.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService{
@@ -48,12 +49,17 @@ export class DataStorageService{
     // In your fetchBooksFromCart() method, adjust to match the structure:
 
     fetchBooksFromCart() {
+        
 
-        return this.http.get<Book[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/cart.json').pipe(tap(books=>{
-            return books ? books.map(book => ({ ...book })) : [];
+        return this.http.get<Cart[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/cart.json').pipe(tap(books=>{
+            return books ? books.map(book => ({ ...[book.id] })) : [];
         }),
         tap(books=>{
-            this.cartService.setBooksInCart(books)
+
+            books.forEach(book=>{
+                console.log(book)
+                this.cartService.setBooksInCart(book.id, book.count)
+            })
         }))
 }
 

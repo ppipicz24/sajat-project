@@ -4,19 +4,20 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/r
 import { DataStorageService } from "../shared/data-storage.service";
 import { Book } from "../books/books.model";
 import { CartService } from "./cart.service";
+import { Cart } from "./cart.model";
+import { BooksService } from "../books/books.service";
 
 @Injectable({providedIn: 'root'})
-export class CartResolverService implements Resolve<Book[]>{
-    constructor(private dataStorage: DataStorageService, private cartService: CartService) {}
+export class CartResolverService implements Resolve<Cart[]>{
+    constructor(private dataStorage: DataStorageService, private cartService: CartService, private booksService: BooksService) {}
     
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-        const books =  this.cartService.getBooksInCart()
+        const cart =  this.cartService.getBooksInCart()
+        const books = this.booksService.getBooks()
 
-        if(books.length === 0){
-            return this.dataStorage.fetchBooksFromCart()
-        }
-        else{
-            return books
+
+        if(cart.length === 0 ){
+            return this.dataStorage.fetchBooksFromCart()        
         }
     }
 

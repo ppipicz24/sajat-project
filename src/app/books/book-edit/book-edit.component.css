@@ -25,7 +25,7 @@
 .author,
 .description,
 .price,
-.imagePath {
+.imagePath, .stock {
   width: 76%;
   color: rgb(38, 50, 56);
   font-weight: 700;

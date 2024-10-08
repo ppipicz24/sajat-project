@@ -33,6 +33,7 @@ export class BookEditComponent implements OnInit {
     let bookImage = ''
     let bookPrice
     let id = 0
+    let stock
     console.log(this.editMode)
 
     if(this.editMode){
@@ -43,6 +44,7 @@ export class BookEditComponent implements OnInit {
       bookDescription = book.description
       bookImage = book.imagePath
       bookPrice = book.price
+      stock = book.stock
     }
 
     this.bookForm = new FormGroup({
@@ -51,7 +53,8 @@ export class BookEditComponent implements OnInit {
       author: new FormControl(bookAuthor, Validators.required),
       description: new FormControl(bookDescription, Validators.required),
       imagePath: new FormControl(bookImage, Validators.required),
-      price: new FormControl(bookPrice, [Validators.required, Validators.min(1)])
+      price: new FormControl(bookPrice, [Validators.required, Validators.min(1)]),
+      stock: new FormControl(stock, [Validators.required, Validators.min(1)])
     })
   }
 
