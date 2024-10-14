@@ -9,8 +9,6 @@ import { Cart } from "../cart/cart.model";
 @Injectable({providedIn: 'root'})
 export class DataStorageService{
     constructor(private http: HttpClient, private bookService: BooksService, private cartService: CartService){}
-
-    
     
     storeBooks()
     {
@@ -27,6 +25,9 @@ export class DataStorageService{
             return books ? books.map(book => ({ ...book })) : [];
         }),
         tap(books=>{
+            if(books === null){
+                return
+            }
             this.bookService.setBooks(books)
         })
     )
@@ -46,18 +47,15 @@ export class DataStorageService{
         })
     }
 
-    // In your fetchBooksFromCart() method, adjust to match the structure:
-
     fetchBooksFromCart() {
-        
-
         return this.http.get<Cart[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/cart.json').pipe(tap(books=>{
             return books ? books.map(book => ({ ...[book.id] })) : [];
         }),
         tap(books=>{
-
+            if(books === null){
+                return
+            }
             books.forEach(book=>{
-                console.log(book)
                 this.cartService.setBooksInCart(book.id, book.count)
             })
         }))
@@ -68,6 +66,8 @@ export class DataStorageService{
             console.log(responseData)
         })
     }
+
+    
 
 }
 

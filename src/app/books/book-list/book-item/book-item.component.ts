@@ -27,7 +27,6 @@ export class BookItemComponent implements OnInit {
 
     console.log(this.book.id)
     this.countCartItems = this.cartService.getBooksInCart().length + 1
-    console.log(this.countCartItems)
   }
 
 
@@ -39,7 +38,5 @@ export class BookItemComponent implements OnInit {
     this.countCartItems = this.cartService.getBooksInCart().length + 1
     this.cartService.addBooksToCart({ id: this.book.id, count: 1})
     this.dataStore.storeBooksToCart()
-    console.log(this.countCartItems)
-    console.log(this.cartService.getBooksInCart())
   }
 }

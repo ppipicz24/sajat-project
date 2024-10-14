@@ -31,8 +31,6 @@ export class BookListComponent implements OnInit, OnDestroy{
     
     //load initial books
     this.books = this.bookService.getBooks()
-    console.log(this.books)
-
 
     //subscribe to auth changes 
     this.userSub = this.authService.user.subscribe(user => {

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { BookItemComponent } from '../books/book-list/book-item/book-item.component';
 import { CartComponent } from '../cart/cart.component';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-headers',
@@ -13,26 +14,45 @@ export class HeadersComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
   count = 0;
+  cartItems = []
+  cartSub: Subscription
+  isCartEmpty = true
 
-  constructor(private authService: AuthService,
-  ){}
+  constructor(private authService: AuthService, private cartService: CartService,
+  ){
+    this.cartItems = this.cartService.getBooksInCart()
+  }
 
   ngOnInit(){
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user;
     });
-    // this.count = this.bookItemComponent.countCartItems; 
+
+    this.cartSub = this.cartService.booksChangedInCart.subscribe((booksInCart)=>{
+      this.cartItems = booksInCart
+
+      if(this.cartItems.length > 0){
+        this.isCartEmpty = false
+      }
+      else{
+        this.isCartEmpty = true
+      }
+
+      this.count = this.isCartEmpty ? 0 : this.cartService.getSumBookCountInCart()
+
+    })
+
   }
 
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this.userSub.unsubscribe();
+    this.cartSub.unsubscribe();
   }
 
   onLogout(){
     this.authService.logout();
   }
-
 
 }

@@ -6,7 +6,7 @@
     
 </div>
 
-<div *ngIf="!cartKiirni">A kosár üres</div>
+<div *ngIf="cartKiirni.length===0">A kosár üres</div>
 
 
 <div class="valami">
@@ -14,9 +14,9 @@
     <tr *ngFor="let book of cartKiirni; let i = index">
         <td class="imgTd"><img [src]="book.imagePath" alt="{{book.title}}" class="img"></td>
         <td>{{book.author}}: {{book.title}}</td>
-        <td>{{book.price * countPerItem[i]}} Ft</td>
-        <td>{{countPerItem[i]}}</td>
-        <td><button (click)="removeFromCart(i)" class="delete">X</button></td>
+        <td class="price">{{book.price*countPerItem[i]}} Ft</td>
+        <td class="db"><button class="button" (click)="increaseBookCount(i)">+</button>{{countPerItem[i]}} <button class="button" (click)="decreaseBookCount(i)">-</button></td>
+        <td class="x"><button (click)="removeFromCart(i)" class="delete">X</button></td>
     </tr>
 </table>
 

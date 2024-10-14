@@ -5,6 +5,7 @@ import { Book } from '../books/books.model';
 import { Subscription } from 'rxjs';
 import { Cart } from './cart.model';
 import { BooksService } from '../books/books.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-cart',
@@ -19,8 +20,10 @@ export class CartComponent implements OnInit, OnDestroy {
   id: number
   cart: Book[] = []
   cartKiirni: Book[] = []
+  sumPerItem: number[] = []
+  isCartEmpty = true
 
-  constructor(private cartService: CartService, private route: ActivatedRoute, private router: Router, private bookService: BooksService) {
+  constructor(private cartService: CartService, private route: ActivatedRoute, private router: Router, private bookService: BooksService, private dataStore: DataStorageService) {
     this.cartItems = this.cartService.getBooksInCart()
     this.cart = this.bookService.getBooks()
   }
@@ -38,15 +41,8 @@ export class CartComponent implements OnInit, OnDestroy {
           this.countPerItem[j] = cartItem.count
         })
       })
-
-      console.log("Cart kiirni")
-      console.log(this.cartKiirni)
-      console.log(this.cartItems)
-
        //load initial books in cart
        this.cartItems = this.cartService.getBooksInCart()
-       console.log("Cart items")
-       console.log(this.cartItems)
 
    }
 
@@ -55,5 +51,26 @@ export class CartComponent implements OnInit, OnDestroy {
     //Add 'implements OnDestroy' to the class.
     this.sub.unsubscribe()
    }
+
+   increaseBookCount(index: number){
+      this.countPerItem[index] = this.cartService.increaseBookCountInCart(index)
+      this.sumPerItem[index] = this.cartKiirni[index].price * this.countPerItem[index]
+      this.dataStore.storeBooksToCart()
+    }
+
+    decreaseBookCount(index: number){
+      this.countPerItem[index]=this.cartService.decreaseBookCountInCart(index)
+      this.sumPerItem[index] = this.cartKiirni[index].price * this.countPerItem[index]
+      this.dataStore.storeBooksToCart()
+    }
+
+    removeFromCart(index: number){
+      this.cartService.deleteBookFromCart(index)
+      this.cartItems = this.cartService.getBooksInCart()
+      this.cartKiirni.splice(index, 1)
+      this.dataStore.storeBooksToCart()
+    }
+
+
 
 }

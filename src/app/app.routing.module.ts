@@ -11,7 +11,8 @@ import { CartResolverService } from "./cart/cart.resolver.service";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
-    {path: 'books', component: BooksComponent, resolve:[BooksResolverService], children: [
+    {path: 'books', component: BooksComponent, resolve:[BooksResolverService, CartResolverService], children: [
+        
         // {path: '', component: BooksComponent},
         {path: ':id', component: BookDetailComponent},
     ]
