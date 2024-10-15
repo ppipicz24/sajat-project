@@ -21,7 +21,6 @@ export class BooksComponent implements OnInit, OnDestroy {
     });
 
     this.user = this.authService.user.value;
-    console.log(this.user);
   }
 
   ngOnDestroy(): void {

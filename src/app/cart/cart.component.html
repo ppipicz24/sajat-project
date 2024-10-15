@@ -6,10 +6,14 @@
     
 </div>
 
-<div *ngIf="cartKiirni.length===0">A kosár üres</div>
+<div *ngIf="cartKiirni.length===0">
+        <img class="cartimg" src="cartisempty.jpg" alt="">
+    <h3> A kosár jelenleg üres</h3>
+    <p routerLink="/books" style="cursor: pointer;" class="addToemptyCart">Adj hozzá új könyvet</p>
+</div>
 
 
-<div class="valami">
+<div class="valami" *ngIf="cartKiirni.length!=0">
 <table>
     <tr *ngFor="let book of cartKiirni; let i = index">
         <td class="imgTd"><img [src]="book.imagePath" alt="{{book.title}}" class="img"></td>
@@ -20,4 +24,6 @@
     </tr>
 </table>
 
+    <h2>Összesen: {{sumPrice()}} Ft</h2>
+    <button (click)="onOrder()" class="order">Megrendelés</button>
 </div>

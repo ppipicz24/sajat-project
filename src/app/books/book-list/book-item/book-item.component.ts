@@ -24,8 +24,6 @@ export class BookItemComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id']
     })
-
-    console.log(this.book.id)
     this.countCartItems = this.cartService.getBooksInCart().length + 1
   }
 

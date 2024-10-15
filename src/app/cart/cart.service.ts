@@ -47,23 +47,19 @@ export class CartService {
     const books = this.getBooksInCart()
     if(books[index].count > 1){
       books[index].count -= 1;
+      this.booksChangedInCart.next(this.booksInCart.slice());
+      return books[index].count
     }
     else{
       this.deleteBookFromCart(index)
+      return 
     }
-
-    this.booksChangedInCart.next(this.booksInCart.slice());
-    console.log(books[index].count)
-    return books[index].count
 
   }
 
   addBooksToCart(book: Cart) {
 
     const books = this.getBooksInCart()
-    if(books.length === 0 ){
-      this.booksInCart.push(book);
-    }
     
     if(books.every((element) => element.id !== book.id)){
       this.booksInCart.push(book);
