@@ -24,7 +24,7 @@ img {
     font-family: 'Libre Baskerville', serif
 }
 
-.fav{
+.fav, .dot{
     width: 20px;
     height: 20px;
     font-family: 'Libre Baskerville', serif
@@ -36,6 +36,12 @@ img {
     width: 20px;
     height: 20px;
     border: none;
+}
+
+.dots{
+    border:none;
+    width: 10px;
+    background-color: transparent;
 }
 
 .detail, .cart{
