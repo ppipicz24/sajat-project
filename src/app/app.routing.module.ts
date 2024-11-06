@@ -8,6 +8,7 @@ import { BookDetailComponent } from "./books/book-detail/book-detail.component";
 import { BooksResolverService } from "./books/books.resolver.service";
 import { CartComponent } from "./cart/cart.component";
 import { CartResolverService } from "./cart/cart.resolver.service";
+import { FavouritesResolverService } from "./favourites/favourites.resolver";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
 },
     {path: 'new', component: BookEditComponent},
     {path: 'auth', component: AuthComponent},
-    {path: 'favourites', component: FavouritesComponent},
+    {path: 'favourites', component: FavouritesComponent, resolve: [BooksResolverService, FavouritesResolverService]},
     {path: 'cart', component: CartComponent, resolve: [CartResolverService, BooksResolverService]}
 
 

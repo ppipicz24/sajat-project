@@ -5,10 +5,12 @@ import { count, tap } from "rxjs";
 import { Book } from "../books/books.model";
 import { CartService } from "../cart/cart.service";
 import { Cart } from "../cart/cart.model";
+import { FavouriteService } from "../favourites/favourites.service";
+import { Favourite } from "../favourites/favourites.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService{
-    constructor(private http: HttpClient, private bookService: BooksService, private cartService: CartService){}
+    constructor(private http: HttpClient, private bookService: BooksService, private cartService: CartService, private favouriteService: FavouriteService){}
     
     storeBooks()
     {
@@ -66,6 +68,35 @@ export class DataStorageService{
             console.log(responseData)
         })
     }
+
+    storeFavourites(){
+        const favs = this.favouriteService.getFavourites()
+
+        this.http.put('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/favorite.json', favs).subscribe(responseData =>{
+            console.log(responseData)
+        })
+    }
+
+    fetchFavourite() {
+        return this.http.get<Favourite[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/favorite.json').pipe(tap(favs=>{
+            return favs ? favs.map(fav => ({ ...[fav.id] })) : [];
+        }),
+        tap(favs=>{
+            if(favs === null){
+                return
+            }
+            favs.forEach(fav=>{
+                this.favouriteService.setFavourite(fav.id)
+            })
+        }))
+    }
+
+    deleteFavourites(){
+        return this.http.delete('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/favorite.json').subscribe(responseData =>{
+            console.log(responseData)
+        })
+    }
+
 
     
 

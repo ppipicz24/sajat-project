@@ -5,6 +5,7 @@ import { BookDetailComponent } from '../../book-detail/book-detail.component';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../../cart/cart.service';
 import { DataStorageService } from '../../../shared/data-storage.service';
+import { FavouriteService } from '../../../favourites/favourites.service';
 
 @Component({
   selector: 'app-book-item',
@@ -17,8 +18,9 @@ export class BookItemComponent implements OnInit {
 
  id: number
  countCartItems: number
+ isFavorite: boolean = false
 
- constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService){}
+ constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService){}
  
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -30,6 +32,23 @@ export class BookItemComponent implements OnInit {
 
   openDialog(index: number){
     this.dialog.open(BookDetailComponent, {data: {index: index}, disableClose: true})
+  }
+
+  onFavorite(){
+    this.isFavorite = !this.isFavorite
+
+    if(this.isFavorite){
+      this.isFavorite = true
+      this.favouriteService.setFavourite(this.book.id)
+      this.dataStore.storeFavourites()
+    }
+    else{
+      this.isFavorite = false
+      this.favouriteService.deleteFavourite(this.book.id)
+      this.dataStore.storeFavourites()
+    }
+
+
   }
 
   addToCart(){
