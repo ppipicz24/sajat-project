@@ -1,1 +1,33 @@
-<p>favourites works!</p>
+<div class="valami1">
+    <a routerLink="../books" class="previous" style="cursor: pointer;">Vissza a főoldalra</a>
+</div>
+<div class="valami">
+    <h1>Kedvencek</h1>
+    
+</div>
+
+<div *ngIf="favKiirni.length===0">
+
+    <img class="favimg" src="emptyFav.png" alt=""> <br>
+<h3>Jelenleg nincsenek hozzáadott kedvencek</h3>
+<p routerLink="/books" style="cursor: pointer;" class="addToemptyFav">Adj hozzá kedvenceket</p>
+
+</div>
+
+<div class="valami" *ngIf="favKiirni.length!=0">
+    <div *ngFor="let book of favKiirni; let i = index">
+        <div class="card" >
+            <img [src]="book.imagePath" alt="{{ book.title }}" class="img-responsive">
+            <div class="container">
+                <h4 class="title">{{ book.author }}: <br> {{book.title}}</h4>
+                <p class="price">{{book.price}} Ft</p>
+                <p class="list-group-item-text description">{{ book.description }}</p>
+                <p class="buttons">
+                    <button class="cart" (click)="addToCart(i)">Kosárba</button>
+                    <button class="detail" (click)="openDialog(i)">Részletek</button>
+                    <button class="favs" (click)="deleteFavorite(i)">&#9829;</button>
+                    <button class="dots"><img src="dots.png" class="dot"></button>
+                </p>
+                
+    </div>
+</div>

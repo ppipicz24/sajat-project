@@ -36,7 +36,7 @@ export class BookDetailComponent implements OnInit {
     this.dataStore.storeBooksToCart()
   }
 
-  ngOnDestroy(){
-    this.paramSub.unsubscribe();
-  }
+  // ngOnDestroy(){
+  //   this.paramSub.unsubscribe();
+  // }
 }

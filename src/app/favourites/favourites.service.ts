@@ -17,6 +17,7 @@ export class FavouriteService{
     }
 
     setFavourite(id: number){
+        
         this.booksInFavourites.push({id: id})
         this.booksChangedInFavourites.next(this.booksInFavourites.slice())
     }
@@ -24,6 +25,18 @@ export class FavouriteService{
     deleteFavourite(index: number){
         this.booksInFavourites.splice(index, 1)
         this.booksChangedInFavourites.next(this.booksInFavourites.slice())
+    }
+
+    addBooksToFavourites(book: Favourite){
+        const books = this.getFavourites()
+
+        if(books.find(b => b.id === book.id)){
+            return
+        }
+        else{
+            this.booksInFavourites.push(book)
+            this.booksChangedInFavourites.next(this.booksInFavourites.slice())
+        }
     }
 
 

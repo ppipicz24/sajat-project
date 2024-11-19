@@ -18,7 +18,7 @@ export class BookItemComponent implements OnInit {
 
  id: number
  countCartItems: number
- isFavorite: boolean = false
+ isFavorite: boolean //= false
 
  constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService){}
  
@@ -26,9 +26,9 @@ export class BookItemComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id']
     })
-    this.countCartItems = this.cartService.getBooksInCart().length + 1
-  }
 
+    this.isFavorite = this.favouriteService.getFavourites().find(fav => fav.id === this.book.id) ? true : false
+  }
 
   openDialog(index: number){
     this.dialog.open(BookDetailComponent, {data: {index: index}, disableClose: true})
@@ -36,19 +36,17 @@ export class BookItemComponent implements OnInit {
 
   onFavorite(){
     this.isFavorite = !this.isFavorite
-
+    
     if(this.isFavorite){
       this.isFavorite = true
-      this.favouriteService.setFavourite(this.book.id)
+      this.favouriteService.addBooksToFavourites(this.book)
       this.dataStore.storeFavourites()
     }
     else{
       this.isFavorite = false
-      this.favouriteService.deleteFavourite(this.book.id)
+      this.favouriteService.deleteFavourite(this.id)
       this.dataStore.storeFavourites()
     }
-
-
   }
 
   addToCart(){
@@ -56,4 +54,5 @@ export class BookItemComponent implements OnInit {
     this.cartService.addBooksToCart({ id: this.book.id, count: 1})
     this.dataStore.storeBooksToCart()
   }
+
 }
