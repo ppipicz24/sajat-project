@@ -13,7 +13,7 @@ import { FavouritesResolverService } from "./favourites/favourites.resolver";
 const appRoutes: Routes = [
     {path: '', redirectTo: '/books', pathMatch: 'full'},
     {path: 'books', component: BooksComponent, resolve:[BooksResolverService, CartResolverService, FavouritesResolverService], children: [
-        {path: ':id', component: BookDetailComponent},
+        {path: ':id', component: BookDetailComponent, resolve:[FavouritesResolverService]},
     ]
 },
     {path: 'new', component: BookEditComponent},

@@ -25,7 +25,8 @@
           </tr>
             <div class="buttons">
               <button class="cart" (click)="addToCart()">Kosárba</button>
-              <button class="favs"><img class="fav" src="https://img.icons8.com/?size=100&id=86&format=png&color=000000" alt=""></button>
+              <button class="favs" *ngIf="!isAuth || !isFavorite" (click)="onFavorite()">&#9825;</button>
+              <button class="favs" *ngIf="isFavorite && isAuth" (click)="onFavorite()">&#9829;</button>
 
             </div>
         </table>

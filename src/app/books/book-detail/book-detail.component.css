@@ -52,11 +52,15 @@ table{
     height: auto;
 }
 
-.favs, .fav{
+
+.favs{
     background-color: transparent;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border: none;
+    font-size: 25px;
+        
+
 }
 
 .cart{

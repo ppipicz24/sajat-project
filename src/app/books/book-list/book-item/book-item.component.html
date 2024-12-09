@@ -12,9 +12,8 @@
     <p class="buttons">
       <button class="cart" (click)="addToCart()">Kosárba</button>
       <button class="detail" (click)="openDialog(index)">Részletek</button>
-      <button class="favs" *ngIf="!isFavorite" (click)="onFavorite()">&#9825;</button>
-      <button class="favs" *ngIf="isFavorite" (click)="onFavorite()">&#9829;</button>
-      <button class="dots"><img src="dots.png" class="dot"></button>
+      <button class="favs" *ngIf="!isAuth || !isFavorite" (click)="onFavorite()">&#9825;</button>
+      <button class="favs" *ngIf="isFavorite && isAuth" (click)="onFavorite()">&#9829;</button>
     </p>
   </div>
 </div>
