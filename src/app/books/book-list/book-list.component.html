@@ -4,7 +4,7 @@
 
 <!-- Grid Container -->
 <div class="book-grid">
-    <ng-container *ngFor="let book of books; let i = index">
+    <ng-container *ngFor="let book of filteredBooks; let i = index">
         <app-book-item [book]="book" [index]="i"></app-book-item>
     </ng-container>
 </div>

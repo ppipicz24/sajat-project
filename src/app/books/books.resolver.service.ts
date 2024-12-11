@@ -10,12 +10,11 @@ export class BooksResolverService implements Resolve<Book[]>{
     
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
         const books =  this.bookService.getBooks()
-
-        // return this.dataStorage.fetchBooks()
-
         // let's check if we have books in our service
         if(books.length === 0){
-            return this.dataStorage.fetchBooks()
+
+            return this.dataStorage.fetchBooks() 
+            
         }
     }
 

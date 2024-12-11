@@ -35,6 +35,20 @@ export class DataStorageService{
     )
     }
 
+    fetchFilteredBooks(){
+        return this.http.get<Book[]>('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/books.json').pipe(tap(books=>{
+            return books ? books.map(book => ({ ...book })) : [];
+        }),
+        tap(books=>{
+            if(books === null){
+                return
+            }
+            this.bookService.setBooks(books)
+            this.bookService.getFilteredBooks()
+        })
+    )
+    }
+
     deleteBooks(){
         return this.http.delete('https://own-project-fd626-default-rtdb.europe-west1.firebasedatabase.app/books.json').subscribe(responseData =>{
             console.log(responseData)

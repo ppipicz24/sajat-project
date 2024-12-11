@@ -5,8 +5,10 @@ import { Book } from "./books.model";
 @Injectable({providedIn: 'root'})
 export class BooksService {
     booksChanged = new Subject<Book[]>();
+    filteredBooksChanged = new Subject<Book[]>();
 
     books: Book[] = []
+    filteredBooks: Book[] = []
 
     getBooks(){
         return this.books.slice();
@@ -40,5 +42,19 @@ export class BooksService {
         this.booksChanged.next(this.books.slice());
     }
 
+    filterBooks(search: string): Book[] {
+        this.filteredBooks = this.books.filter(book =>
+            book.title.toLowerCase().includes(search.toLowerCase()) ||
+            book.author.toLowerCase().includes(search.toLowerCase())
+        );
+        this.filteredBooksChanged.next(this.filteredBooks.slice()); // Értesítés a változásról
+        return this.filteredBooks.slice();
+    }
+
+    getFilteredBooks(){
+        console.log(this.filteredBooks)
+        return this.filteredBooks.slice();
+
+    }
 
 }

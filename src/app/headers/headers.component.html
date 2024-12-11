@@ -9,8 +9,8 @@
                 <div class="collaps navbar-collapse" id="navbarToggler">
 
                     <div class="search-box">
-                        <button class="btn-search"><img src="https://img.icons8.com/?size=100&id=131&format=png&color=e8f6f3" alt="" class="img"></button>
-                        <input type="text" class="input-search" placeholder="Type to Search...">
+                        <button class="btn-search"><img src="https://img.icons8.com/?size=100&id=131&format=png&color=e8f6f3" alt="" class="img" (click)="onSearch(search)"></button>
+                        <input type="text" class="input-search" placeholder="Type to Search..." [(ngModel)]="search">
                     </div>
                     
                     <ul class="nav navbar-nav navbar-right">
@@ -24,7 +24,6 @@
                         <li class="nav-item" *ngIf="isAuthenticated">
                             <a class="nav-link" (click)="onLogout()">Kijelentkezés</a>
                         </li>
-                        <!-- <div class="animation start-home"></div> -->
                     </ul>
                 </div>
             </div>

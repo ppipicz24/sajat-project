@@ -1,9 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, input, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { BookItemComponent } from '../books/book-list/book-item/book-item.component';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart/cart.service';
+import { Book } from '../books/books.model';
+import { BooksService } from '../books/books.service';
 
 @Component({
   selector: 'app-headers',
@@ -11,6 +13,8 @@ import { CartService } from '../cart/cart.service';
   styleUrl: './headers.component.css'
 })
 export class HeadersComponent implements OnInit, OnDestroy {
+  search: string
+
   isAuthenticated = false;
   private userSub: Subscription;
   count = 0;
@@ -18,9 +22,12 @@ export class HeadersComponent implements OnInit, OnDestroy {
   cartSub: Subscription
   isCartEmpty = true
 
-  constructor(private authService: AuthService, private cartService: CartService,
-  ){
+  filteredBooks = []
+
+  constructor(private authService: AuthService, private cartService: CartService, private bookService: BooksService  ){
     this.cartItems = this.cartService.getBooksInCart()
+    this.filteredBooks = this.bookService.getBooks()
+
   }
 
   ngOnInit(){
@@ -55,4 +62,8 @@ export class HeadersComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
+  onSearch(searchTerm: string){
+    this.filteredBooks = this.bookService.filterBooks(searchTerm)
+    console.log(this.filteredBooks)
+  }
 }

@@ -31,11 +31,8 @@ table{
 }
 
 td{
-    /* width: 50%; */
-    /* width: 100; */
     border-collapse: collapse;
     margin-top: 30px;
-    /* border: #0e6655 1px solid; */
     border-radius: 2px;
     
 }
@@ -63,14 +60,12 @@ tr:nth-child(even){
 
 td.db{
     width: 100px;
-    /* border: #0e6655 1px solid; */
     text-align: right;
-    /* font-size: 20px; */
+
 }
 
 td.x{
     width: 50px;
-    /* border: #0e6655 1px solid; */
     text-align: right;
 }
 
@@ -87,7 +82,6 @@ td.price{
 
 .cartimg{
     width: 20%;
-    /* height: 20%; */
     background-color: transparent;
     margin-left: auto;
     margin-right: auto;
