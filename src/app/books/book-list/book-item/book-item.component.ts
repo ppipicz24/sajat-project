@@ -8,6 +8,7 @@ import { DataStorageService } from '../../../shared/data-storage.service';
 import { FavouriteService } from '../../../favourites/favourites.service';
 import { AuthService } from '../../../auth/auth.service';
 import { Subscription } from 'rxjs';
+import { BooksService } from '../../books.service';
 
 @Component({
   selector: 'app-book-item',
@@ -22,10 +23,11 @@ export class BookItemComponent implements OnInit {
  countCartItems: number
  isFavorite: boolean //= false
  isAuth = false
+ idFiltered = false
 
  userSub: Subscription
 
- constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService, private auth: AuthService,private router: Router){}
+ constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService, private auth: AuthService,private router: Router, private bookService:BooksService){}
  
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -67,6 +69,11 @@ export class BookItemComponent implements OnInit {
     this.countCartItems = this.cartService.getBooksInCart().length + 1
     this.cartService.addBooksToCart({ id: this.book.id, count: 1})
     this.dataStore.storeBooksToCart()
+  }
+
+  onDelete(){
+    this.bookService.deleteBook(this.index)
+    this.dataStore.storeBooks()
   }
 
 }

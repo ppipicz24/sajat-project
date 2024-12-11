@@ -20,13 +20,13 @@ img {
     padding: 2px 16px;
 }
 
-.fav, .dot{
+.fav, .dot, .deleteimg{
     width: 20px;
     height: 20px;
 
 }
 
-.favs{
+.favs, .delete{
     background-color: transparent;
     width: 25px;
     height: 25px;
