@@ -1,10 +1,7 @@
-import { Component, input, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-import { BookItemComponent } from '../books/book-list/book-item/book-item.component';
-import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart/cart.service';
-import { Book } from '../books/books.model';
 import { BooksService } from '../books/books.service';
 
 @Component({
@@ -64,6 +61,5 @@ export class HeadersComponent implements OnInit, OnDestroy {
 
   onSearch(searchTerm: string){
     this.filteredBooks = this.bookService.filterBooks(searchTerm)
-    console.log(this.filteredBooks)
   }
 }

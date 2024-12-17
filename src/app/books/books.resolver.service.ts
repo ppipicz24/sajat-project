@@ -12,9 +12,7 @@ export class BooksResolverService implements Resolve<Book[]>{
         const books =  this.bookService.getBooks()
         // let's check if we have books in our service
         if(books.length === 0){
-
-            return this.dataStorage.fetchBooks() 
-            
+            return this.dataStorage.fetchBooks()          
         }
     }
 

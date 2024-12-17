@@ -23,11 +23,13 @@ export class BookItemComponent implements OnInit {
  countCartItems: number
  isFavorite: boolean //= false
  isAuth = false
- idFiltered = false
+ isFiltered = false
+
 
  userSub: Subscription
 
- constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService, private auth: AuthService,private router: Router, private bookService:BooksService){}
+ constructor(public dialog: MatDialog, private route: ActivatedRoute, private cartService: CartService, private dataStore: DataStorageService, private favouriteService: FavouriteService, private auth: AuthService,private router: Router, private bookService:BooksService){
+ }
  
   ngOnInit(){
     this.route.params.subscribe(params => {

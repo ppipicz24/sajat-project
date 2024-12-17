@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Book } from "./books.model";
+import { get } from "animejs";
 
 @Injectable({providedIn: 'root'})
 export class BooksService {
@@ -40,9 +41,13 @@ export class BooksService {
     deleteBook(index: number){
         this.books.splice(index, 1);
         this.booksChanged.next(this.books.slice());
-    }
+        this.filterBooks('');
+        }
 
     filterBooks(search: string): Book[] {
+        if(search === undefined) {
+            search = '';
+        }
         this.filteredBooks = this.books.filter(book =>
             book.title.toLowerCase().includes(search.toLowerCase()) ||
             book.author.toLowerCase().includes(search.toLowerCase())

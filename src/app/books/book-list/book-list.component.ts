@@ -18,6 +18,8 @@ export class BookListComponent implements OnInit, OnDestroy{
   isAuthenticated = false
   private userSub: Subscription;
   filteredBooks = []
+  isFiltered = false
+
 
   constructor(private router: Router, private route: ActivatedRoute, private bookService: BooksService,  private authService: AuthService
   ) {
@@ -31,6 +33,7 @@ export class BookListComponent implements OnInit, OnDestroy{
 
     this.bookService.filteredBooksChanged.subscribe((filteredBooks: Book[]) => {
       this.filteredBooks = filteredBooks
+      this.isFiltered = true
     })
 
     //subscribe to auth changes 
@@ -38,8 +41,9 @@ export class BookListComponent implements OnInit, OnDestroy{
       this.isAuthenticated = !!user;
     });
 
-    this.books = this.bookService.getBooks()
+    //this.books = this.bookService.getBooks()
     this.filteredBooks = this.books.slice()
+    this.isFiltered = false
     
   }
 

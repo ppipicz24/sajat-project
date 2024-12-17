@@ -3,6 +3,10 @@
 </div>
 
 <!-- Grid Container -->
+
+<!-- No books message -->
+<div class="alert alert-info" *ngIf="books.length === 0">Nincs megjeleníthető könyv.</div>
+
 <div class="book-grid">
     <ng-container *ngFor="let book of filteredBooks; let i = index">
         <app-book-item [book]="book" [index]="i"></app-book-item>
