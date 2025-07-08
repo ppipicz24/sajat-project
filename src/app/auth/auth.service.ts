@@ -34,7 +34,7 @@ export class AuthService{
         }))
     }
 
-    login(email: string, password: string){
+    /*login(email: string, password: string){
         return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDJm5gcz3HQhs6w4R6J58Rh3rofzTyV8-s',
             {
                 password: password,
@@ -43,7 +43,7 @@ export class AuthService{
             }).pipe(catchError(this.handleError), tap(responseData=>{
                 this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
             }))
-    }
+    }*/
 
     logout(){
         this.user.next(null);
